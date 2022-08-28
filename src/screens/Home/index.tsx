@@ -1,8 +1,8 @@
 import React from 'react';
-import { HomeProps } from '../../routes/routes.stack';
 
 import { CustomText, CustomButton } from '../../components';
 import theme from '../../global/styles/theme';
+import { HomeProps } from '../../routes/routes.stack';
 import { Container, Header, Body } from './styles';
 
 const Home: React.FC<HomeProps> = ({ navigation }) => {
@@ -15,7 +15,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
       </Header>
       <Body>
         <CustomButton
-          onPress={() => navigation.navigate('Ligas')}
+          onPress={() => navigation.navigate('TabLeague', { screen: 'League' })}
           borderRadius={6}
           backgroundColor={theme.colors.greenBackground}
           padding={{ x: 0, y: 42 }}>

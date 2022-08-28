@@ -17,23 +17,26 @@ export const ContentContainer = styled.View`
 export const Card = styled.View`
   display: flex;
   flex-direction: row;
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
   margin-bottom: ${RFValue(12)}px;
-  padding: ${RFValue(24)}px;
+  padding: ${RFValue(20)}px;
 
   border-radius: 5px;
 `;
 
 export const LeagueImage = styled(Image)`
-  height: ${RFValue(54)}px;
-  width: ${RFValue(54)}px;
+  height: ${RFValue(58)}px;
+  width: ${RFValue(58)}px;
 `;
 
 export const LeagueInfoContainer = styled.View`
   flex: 1;
   justify-content: center;
-  align-items: center;
+  margin-left: 16px;
+`;
+
+export const FlagContainer = styled.View`
+  justify-content: center;
 `;
 
 export const LeagueList = styled(

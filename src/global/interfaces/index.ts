@@ -1,6 +1,12 @@
+export interface APIResponse<T> {
+  response: T[];
+}
+
 export interface LeaguesProps {
-  id: number;
-  name: string;
-  type: string;
-  logo: string;
+  league: { id: number; name: string; type: string; logo?: string };
+  country: {
+    name: string;
+    code: string | null;
+    flag: string | null;
+  };
 }
