@@ -2,23 +2,15 @@ import React from 'react';
 import { Image } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
+import { StandingProps } from '../../global/interfaces';
 import {
   ScrollVertical,
-  TableHeader,
   TableContent,
+  TableHeader,
   TableTitle,
 } from './styles';
 
-interface StandingProps {
-  standingProps: {
-    rank: number;
-    points: number;
-    team: { id: number; name: string; logo: string };
-    all: { played: number; win: number; draw: number; lose: number };
-  }[];
-}
-
-const Standings: React.FC<StandingProps> = ({ standingProps }) => {
+const Standings: React.FC<StandingProps> = ({ standings }) => {
   return (
     <DataTable>
       <TableHeader>
@@ -30,12 +22,12 @@ const Standings: React.FC<StandingProps> = ({ standingProps }) => {
         <TableTitle numeric>DER</TableTitle>
       </TableHeader>
       <ScrollVertical>
-        {standingProps.map((prop) => (
+        {standings.map((prop) => (
           <TableContent key={prop.team.id}>
             <DataTable.Cell>
               <Image
                 source={{
-                  uri: prop.team.logo,
+                  uri: prop.team.logo ?? '',
                 }}
                 style={{
                   width: 28,

@@ -9,5 +9,5 @@ export const Container = styled.SafeAreaView`
 export const ContentContainer = styled.View`
   display: flex;
   flex-direction: row;
-  margin: ${RFValue(42)}px ${RFValue(12)}px ${RFValue(12)}px;
+  margin: ${RFValue(42)}px ${RFValue(12)}px ${RFValue(150)}px;
 `;
