@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ActivityIndicator, TouchableOpacity } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
 import { CustomText, Header } from '../../components';
-import { useLeague } from '../../hooks/Leagues';
+import { useLeague } from '../../hooks/leagues';
 import { LeagueProps } from '../../routes/routes.stack';
+import { filterLeagues } from '../../utils/leagues.utils';
 import {
   Container,
   ContentContainer,
@@ -18,6 +19,10 @@ import {
 const Ligas: React.FC<LeagueProps> = ({ navigation }) => {
   const { leagues } = useLeague();
 
+  const filteredLeagues = useMemo(() => {
+    return filterLeagues(leagues ?? []);
+  }, [leagues]);
+
   const [imgLoading, setImgLoading] = useState<boolean>(false);
 
   return (
@@ -25,7 +30,7 @@ const Ligas: React.FC<LeagueProps> = ({ navigation }) => {
       <Header label="Ligas" />
       <ContentContainer>
         <LeagueList
-          data={leagues}
+          data={filteredLeagues}
           keyExtractor={({ league }) => {
             return league.id.toString() ?? '';
           }}

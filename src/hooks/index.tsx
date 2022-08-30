@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { LeagueProvider } from './Leagues';
+import { LeagueProvider } from './leagues';
 
 interface ProviderProps {
   children: ReactNode;

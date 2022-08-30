@@ -1,4 +1,10 @@
-import React, { createContext, ReactNode, useContext, useReducer } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useMemo,
+  useReducer,
+} from 'react';
 
 import { LeaguesProps } from '../global/interfaces';
 
@@ -34,8 +40,9 @@ function leagueReducer(
 ): Partial<LeagueContextProps> {
   switch (action.type) {
     case LeagueTypes.SET_LEAGUE: {
-      if (state.leagues?.length === 0)
-        return { ...state, leagues: state.leagues };
+      if (state.leagues?.length === 0) {
+        return { ...state, leagues: action.payload?.leagues };
+      }
 
       return state;
     }
@@ -48,10 +55,12 @@ function leagueReducer(
 function LeagueProvider({ children }: ProviderProps) {
   const [state, dispatch] = useReducer(leagueReducer, initialState);
 
-  const value = { state, dispatch };
+  const value = { leagues: state.leagues, dispatch };
+
+  const props = useMemo(() => ({ ...value }), [value]);
 
   return (
-    <LeagueContext.Provider value={value}>{children}</LeagueContext.Provider>
+    <LeagueContext.Provider value={props}>{children}</LeagueContext.Provider>
   );
 }
 

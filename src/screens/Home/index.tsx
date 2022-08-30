@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { fetchLeagues } from '../../actions';
 import { CustomText, CustomButton } from '../../components';
 import theme from '../../global/styles/theme';
-import { useLeague } from '../../hooks/Leagues';
+import { useLeague } from '../../hooks/leagues';
 import { HomeProps } from '../../routes/routes.stack';
 import { Container, Header, Body } from './styles';
 
