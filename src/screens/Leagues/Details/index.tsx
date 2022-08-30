@@ -33,7 +33,10 @@ const Details: React.FC<LeagueDetailsProps> = ({ navigation }) => {
     <Container>
       <Header label="Detalhes da liga" back={() => navigation.goBack()} />
       <ContentContainer>
-        <StandingsTable standings={standingsArr.standings.flat()} />
+        <StandingsTable
+          standings={standingsArr.standings.flat()}
+          onPress={(id) => console.log(id)}
+        />
       </ContentContainer>
     </Container>
   );

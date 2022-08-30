@@ -12,6 +12,7 @@ import { View } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import theme from './src/global/styles/theme';
+import { Providers } from './src/hooks';
 import { AppTabRoutes } from './src/routes/app.routes';
 
 SplashScreen.preventAutoHideAsync();
@@ -33,13 +34,15 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-        <StatusBar style="inverted" />
-        <NavigationContainer>
-          <AppTabRoutes />
-        </NavigationContainer>
-      </View>
-    </ThemeProvider>
+    <Providers>
+      <ThemeProvider theme={theme}>
+        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+          <StatusBar style="inverted" />
+          <NavigationContainer>
+            <AppTabRoutes />
+          </NavigationContainer>
+        </View>
+      </ThemeProvider>
+    </Providers>
   );
 }

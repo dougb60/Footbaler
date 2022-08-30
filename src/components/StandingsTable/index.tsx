@@ -10,11 +10,15 @@ import {
   TableTitle,
 } from './styles';
 
-const Standings: React.FC<StandingProps> = ({ standings }) => {
+interface StandingsProps extends StandingProps {
+  onPress?: (id: number) => void;
+}
+
+const Standings: React.FC<StandingsProps> = ({ standings, onPress }) => {
   return (
     <DataTable>
       <TableHeader>
-        <TableTitle style={{ flex: 1 }}>Clube</TableTitle>
+        <TableTitle>Clube</TableTitle>
         <TableTitle numeric>PJ</TableTitle>
         <TableTitle numeric>PTS</TableTitle>
         <TableTitle numeric>VIT</TableTitle>
@@ -23,7 +27,9 @@ const Standings: React.FC<StandingProps> = ({ standings }) => {
       </TableHeader>
       <ScrollVertical>
         {standings.map((prop) => (
-          <TableContent key={prop.team.id}>
+          <TableContent
+            key={prop.team.id}
+            onPress={() => onPress && onPress(prop.team.id)}>
             <DataTable.Cell>
               <Image
                 source={{

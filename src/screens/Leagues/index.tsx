@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, TouchableOpacity } from 'react-native';
 import { SvgUri } from 'react-native-svg';
-import { CommonActions } from '@react-navigation/native';
 
 import { CustomText, Header } from '../../components';
 import { APIResponse, LeaguesProps } from '../../global/interfaces';
+import { LeagueTypes, useLeague } from '../../hooks/Leagues';
 import { LeagueProps } from '../../routes/routes.stack';
-// import Api from '../../services/api';
+import Api from '../../services/api';
 import {
   Container,
   ContentContainer,
@@ -18,32 +18,27 @@ import {
 } from './styles';
 
 const Ligas: React.FC<LeagueProps> = ({ navigation }) => {
-  const [leagues, setLeagues] = useState<LeaguesProps[]>([
-    {
-      league: {
-        id: 614,
-        name: 'Paranaense - 2',
-        type: 'League',
-        logo: 'https://media.api-sports.io/football/leagues/614.png',
-      },
-      country: {
-        name: 'Brazil',
-        code: 'BR',
-        flag: 'https://media.api-sports.io/flags/br.svg',
-      },
-    },
-  ]);
+  const { leagues, dispatch } = useLeague();
+
   const [imgLoading, setImgLoading] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   async function fetchLeagues() {
-  // const queryParams = `?season=${new Date().getFullYear()}&code=BR`;
-  //     const leaguesData = await Api.get<APIResponse<LeaguesProps>>(`leagues${queryParams}`);
-  //     setLeagues(leaguesData.data.response);
-  //   }
+  useEffect(() => {
+    async function fetchLeagues() {
+      const queryParams = `?season=${new Date().getFullYear()}&code=BR`;
+      const rawData = await Api.get<APIResponse<LeaguesProps>>(
+        `leagues${queryParams}`
+      );
+      const leagues = rawData.data.response;
 
-  //   fetchLeagues();
-  // }, []);
+      dispatch &&
+        dispatch({
+          type: LeagueTypes.SET_LEAGUE,
+          payload: { leagues },
+        });
+    }
+
+    fetchLeagues();
+  }, []);
 
   return (
     <Container>
@@ -58,12 +53,6 @@ const Ligas: React.FC<LeagueProps> = ({ navigation }) => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.dispatch(
-                    CommonActions.reset({
-                      index: 1,
-                      routes: [{ name: 'TabLeague' }],
-                    })
-                  );
                   navigation.navigate('LeagueDetails');
                 }}>
                 <Card>
