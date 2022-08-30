@@ -10,9 +10,9 @@ interface ProviderProps {
   children: ReactNode;
 }
 
-interface LeagueAction {
+export interface LeagueAction {
   type: LeagueTypes;
-  payload?: { idSelecionado?: number; leagues?: LeaguesProps[] };
+  payload?: { selectedId?: number; leagues?: LeaguesProps[] };
 }
 
 interface LeagueContextProps {

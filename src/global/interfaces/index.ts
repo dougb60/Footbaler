@@ -9,6 +9,16 @@ export interface LeaguesProps {
     code: string | null;
     flag: string | null;
   };
+  seasons: [
+    {
+      start: string;
+      end: string;
+      current: boolean;
+      coverage: {
+        standings: boolean;
+      };
+    }
+  ];
 }
 
 export interface StandingResponseProps {

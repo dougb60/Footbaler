@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
+import { fetchLeagues } from '../../actions';
 import { CustomText, CustomButton } from '../../components';
 import theme from '../../global/styles/theme';
+import { useLeague } from '../../hooks/Leagues';
 import { HomeProps } from '../../routes/routes.stack';
 import { Container, Header, Body } from './styles';
 
 const Home: React.FC<HomeProps> = ({ navigation }) => {
+  const { dispatch } = useLeague();
+
+  useEffect(() => {
+    fetchLeagues(dispatch!);
+  }, [dispatch]);
+
   return (
     <Container>
       <Header>
