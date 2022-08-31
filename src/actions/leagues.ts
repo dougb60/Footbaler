@@ -45,3 +45,13 @@ export async function fetchLeagues(dispatch: React.Dispatch<LeagueAction>) {
     payload: { leagues },
   });
 }
+
+export async function setLeague(
+  dispatch: React.Dispatch<LeagueAction>,
+  leagueId: number
+) {
+  dispatch({
+    type: LeagueTypes.SET_SELECTED_LEAGUE,
+    payload: { selectedId: leagueId },
+  });
+}

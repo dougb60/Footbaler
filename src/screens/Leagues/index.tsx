@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { ActivityIndicator, TouchableOpacity } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
+import { setLeague } from '../../actions/leagues';
 import { CustomText, Header } from '../../components';
 import { useLeague } from '../../hooks/leagues';
 import { LeagueProps } from '../../routes/routes.stack';
@@ -17,7 +18,7 @@ import {
 } from './styles';
 
 const Ligas: React.FC<LeagueProps> = ({ navigation }) => {
-  const { leagues } = useLeague();
+  const { leagues, dispatch } = useLeague();
 
   const filteredLeagues = useMemo(() => {
     return filterLeagues(leagues ?? []);
@@ -38,6 +39,7 @@ const Ligas: React.FC<LeagueProps> = ({ navigation }) => {
             return (
               <TouchableOpacity
                 onPress={() => {
+                  setLeague(dispatch!, league.id);
                   navigation.navigate('LeagueDetails');
                 }}>
                 <Card>

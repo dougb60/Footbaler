@@ -10,6 +10,7 @@ import { LeaguesProps } from '../global/interfaces';
 
 export enum LeagueTypes {
   SET_LEAGUE = 'SET_LEAGUE',
+  SET_SELECTED_LEAGUE = 'SET_SELECTED_LEAGUE',
 }
 
 interface ProviderProps {
@@ -40,11 +41,10 @@ function leagueReducer(
 ): Partial<LeagueContextProps> {
   switch (action.type) {
     case LeagueTypes.SET_LEAGUE: {
-      if (state.leagues?.length === 0) {
-        return { ...state, leagues: action.payload?.leagues };
-      }
-
-      return state;
+      return { ...state, leagues: action.payload?.leagues };
+    }
+    case LeagueTypes.SET_SELECTED_LEAGUE: {
+      return { ...state, selectedId: action.payload?.selectedId };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -55,10 +55,13 @@ function leagueReducer(
 function LeagueProvider({ children }: ProviderProps) {
   const [state, dispatch] = useReducer(leagueReducer, initialState);
 
-  const value = { leagues: state.leagues, dispatch };
+  const value = {
+    leagues: state.leagues,
+    selectedId: state.selectedId,
+    dispatch,
+  };
 
   const props = useMemo(() => ({ ...value }), [value]);
-
   return (
     <LeagueContext.Provider value={props}>{children}</LeagueContext.Provider>
   );

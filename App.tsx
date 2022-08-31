@@ -4,6 +4,7 @@ import {
   Poppins_700Bold,
   useFonts,
 } from '@expo-google-fonts/poppins';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -16,7 +17,9 @@ import { Providers } from './src/hooks';
 import { AppTabRoutes } from './src/routes/app.routes';
 
 SplashScreen.preventAutoHideAsync();
+
 export default function App() {
+  // AsyncStorage.clear();
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,

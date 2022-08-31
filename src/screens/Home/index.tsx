@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { fetchLeagues } from '../../actions';
+import { fetchLeagues } from '../../actions/leagues';
 import { CustomText, CustomButton } from '../../components';
 import theme from '../../global/styles/theme';
 import { useLeague } from '../../hooks/leagues';

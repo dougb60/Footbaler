@@ -21,15 +21,36 @@ export interface LeaguesProps {
   ];
 }
 
-export interface StandingResponseProps {
-  league: StandingProps;
+export interface APIStandingResponseProps {
+  league: APIStandingProps;
 }
 
-export interface StandingProps {
-  standings: {
-    rank: number;
-    points: number;
-    team: { id: number; name: string; logo: string | null };
-    all: { played: number; win: number; draw: number; lose: number };
-  }[];
+export interface APIStandingProps {
+  id: number;
+  standings: [
+    [
+      {
+        rank: number;
+        points: number;
+        team: { id: number; name: string; logo: string | null };
+        all: { played: number; win: number; draw: number; lose: number };
+      }
+    ]
+  ];
+}
+
+export interface FlatStandingProps {
+  leagueId: number;
+  standings: [
+    {
+      rank: number;
+      points: number;
+      team: { id: number; name: string; logo: string | null };
+      all: { played: number; win: number; draw: number; lose: number };
+    }
+  ];
+}
+
+export interface StoredStandingsProps extends FlatStandingProps {
+  leagueId: number;
 }
