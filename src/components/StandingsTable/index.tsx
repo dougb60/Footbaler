@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
 import { FlatStandingProps } from '../../global/interfaces';
+import CustomText from '../CustomText';
 import {
   ScrollVertical,
   TableContent,
@@ -32,15 +33,19 @@ const Standings: React.FC<StandingsProps> = ({ standings, onPress }) => {
               key={prop.team.id}
               onPress={() => onPress && onPress(prop.team.id)}>
               <DataTable.Cell>
-                <Image
-                  source={{
-                    uri: prop.team.logo ?? '',
-                  }}
-                  style={{
-                    width: 28,
-                    height: 28,
-                  }}
-                />
+                {prop.team.logo ? (
+                  <Image
+                    source={{
+                      uri: prop.team.logo,
+                    }}
+                    style={{
+                      width: 28,
+                      height: 28,
+                    }}
+                  />
+                ) : (
+                  <DataTable.Cell>{prop.team.logo}</DataTable.Cell>
+                )}
               </DataTable.Cell>
               <DataTable.Cell numeric>{prop.all.played}</DataTable.Cell>
               <DataTable.Cell numeric>{prop.points}</DataTable.Cell>

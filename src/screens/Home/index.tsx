@@ -17,7 +17,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
   return (
     <Container>
       <Header>
-        <CustomText type="bold" fontColor={theme.colors.shape} fontSize={26}>
+        <CustomText type="bold" fontColor="shape" fontSize={26}>
           Footballer
         </CustomText>
       </Header>
@@ -27,7 +27,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
           borderRadius={6}
           backgroundColor={theme.colors.greenBackground}
           padding={{ x: 0, y: 42 }}>
-          <CustomText type="bold" fontSize={24} fontColor={theme.colors.shape}>
+          <CustomText type="bold" fontSize={24} fontColor="shape">
             Ligas
           </CustomText>
         </CustomButton>
@@ -36,7 +36,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
           padding={{ x: 0, y: 42 }}
           backgroundColor={theme.colors.greenBackground}
           borderRadius={6}>
-          <CustomText type="bold" fontSize={24} fontColor={theme.colors.shape}>
+          <CustomText type="bold" fontSize={24} fontColor="shape">
             Times
           </CustomText>
         </CustomButton>
@@ -44,7 +44,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
           padding={{ x: 0, y: 42 }}
           backgroundColor={theme.colors.greenBackground}
           borderRadius={6}>
-          <CustomText type="bold" fontSize={24} fontColor={theme.colors.shape}>
+          <CustomText type="bold" fontSize={24} fontColor="shape">
             Jogadores
           </CustomText>
         </CustomButton>

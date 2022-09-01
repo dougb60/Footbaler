@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ label, search, back }) => {
         </TouchableOpacity>
       )}
       <LabelContainer>
-        <CustomText type="medium" fontSize={20} fontColor={theme.colors.shape}>
+        <CustomText type="medium" fontSize={20} fontColor="shape">
           {label}
         </CustomText>
       </LabelContainer>

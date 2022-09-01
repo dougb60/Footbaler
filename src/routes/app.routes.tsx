@@ -6,6 +6,7 @@ import theme from '../global/styles/theme';
 import Home from '../screens/Home';
 import Ligas from '../screens/Leagues';
 import LeagueDetails from '../screens/Leagues/Details';
+import Teams from '../screens/Teams';
 import { RootStackParamList } from './routes.stack';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
@@ -16,6 +17,7 @@ function AppStackRoutes() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="League" component={Ligas} />
       <Stack.Screen name="LeagueDetails" component={LeagueDetails} />
+      <Stack.Screen name="Teams" component={Teams} />
     </Stack.Navigator>
   );
 }
