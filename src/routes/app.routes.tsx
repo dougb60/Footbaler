@@ -7,6 +7,8 @@ import Home from '../screens/Home';
 import Ligas from '../screens/Leagues';
 import LeagueDetails from '../screens/Leagues/Details';
 import Teams from '../screens/Teams';
+import Players from '../screens/Teams/Players';
+import Venue from '../screens/Teams/Venues';
 import { RootStackParamList } from './routes.stack';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
@@ -18,6 +20,8 @@ function AppStackRoutes() {
       <Stack.Screen name="League" component={Ligas} />
       <Stack.Screen name="LeagueDetails" component={LeagueDetails} />
       <Stack.Screen name="Teams" component={Teams} />
+      <Stack.Screen name="Venue" component={Venue} />
+      <Stack.Screen name="Players" component={Players} />
     </Stack.Navigator>
   );
 }

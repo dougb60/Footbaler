@@ -2,6 +2,7 @@ export interface APIResponse<T> {
   response: T[];
 }
 
+// Leagues
 export interface LeaguesProps {
   league: { id: number; name: string; type: string; logo?: string };
   country: {
@@ -21,6 +22,7 @@ export interface LeaguesProps {
   ];
 }
 
+// Standings
 export interface APIStandingResponseProps {
   league: APIStandingProps;
 }
@@ -53,4 +55,42 @@ export interface FlatStandingProps {
 
 export interface StoredStandingsProps extends FlatStandingProps {
   leagueId: number;
+}
+
+// Teams
+export interface TeamsProps {
+  team: {
+    id: number;
+    name: string;
+    code: string;
+    country: string;
+    founded: number;
+    national: boolean;
+    logo: string;
+  };
+  venue: {
+    id: number;
+    name: string;
+    address: string;
+    city: string;
+    capacity: number;
+    surface: string;
+    image: string;
+  };
+}
+
+// Players
+export interface StoragePlayersProps {
+  team: { id: number };
+}
+
+export interface PlayersProps extends StoragePlayersProps {
+  players: {
+    id: number;
+    name: string;
+    age: number;
+    number: number;
+    position: string;
+    photo: string;
+  }[];
 }

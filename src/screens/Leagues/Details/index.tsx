@@ -21,7 +21,9 @@ const Details: React.FC<LeagueDetailsProps> = ({ navigation }) => {
       <ContentContainer>
         <StandingsTable
           standings={standings?.standings}
-          onPress={(id) => navigation.navigate('Teams')}
+          onPress={(id) => {
+            navigation.navigate('Teams', { teamId: id });
+          }}
         />
       </ContentContainer>
     </Container>

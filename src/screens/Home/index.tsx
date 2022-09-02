@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
         <CustomButton
           onPress={() => navigation.navigate('TabLeague', { screen: 'League' })}
           borderRadius={6}
-          backgroundColor={theme.colors.greenBackground}
+          backgroundColor="greenBackground"
           padding={{ x: 0, y: 42 }}>
           <CustomText type="bold" fontSize={24} fontColor="shape">
             Ligas
@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
         <CustomButton
           margin={{ x: 0, y: 12 }}
           padding={{ x: 0, y: 42 }}
-          backgroundColor={theme.colors.greenBackground}
+          backgroundColor="greenBackground"
           borderRadius={6}>
           <CustomText type="bold" fontSize={24} fontColor="shape">
             Times
@@ -42,7 +42,7 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
         </CustomButton>
         <CustomButton
           padding={{ x: 0, y: 42 }}
-          backgroundColor={theme.colors.greenBackground}
+          backgroundColor="greenBackground"
           borderRadius={6}>
           <CustomText type="bold" fontSize={24} fontColor="shape">
             Jogadores

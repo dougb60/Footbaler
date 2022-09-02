@@ -1,12 +1,14 @@
 export default {
   colors: {
     dark: '#0D0D0D',
+
     strongRed: '#8C1A0F',
     red: '#F22816',
     lightRed: '#F26B6B',
 
     greenField: '#67A656',
     greenBackground: '#A4D996',
+    lightGreen: 'rgba(103, 166, 86, 0.75)',
 
     success: '#12A454',
 

@@ -31,7 +31,7 @@ export async function fetchStandings(
       new Date()
     );
     const diffHours = differenceInHours(new Date(), formatLastDate);
-    console.log(diffHours, '??');
+
     if (diffHours < 2) {
       dispatch({
         type: StandingTypes.SET_STANDINGS,
