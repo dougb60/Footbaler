@@ -94,3 +94,12 @@ export interface PlayersProps extends StoragePlayersProps {
     photo: string;
   }[];
 }
+
+export interface FlatPlayers {
+  id: number;
+  name: string;
+  age: number;
+  number: number;
+  position: string;
+  photo: string;
+}

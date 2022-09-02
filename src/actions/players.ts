@@ -7,16 +7,15 @@ import api from '../services/api';
 import { getData, removeData, storeData } from '../utils/storage';
 import { StorageKeys } from '../utils/storage-keys';
 
-export async function fetchTeams(
+export async function fetchPlayers(
   dispatch: React.Dispatch<PlayersAction>,
   teamId: number
 ) {
-  const lastUpdated = await getData<string>(StorageKeys.TEAMS_LAST_GET);
+  const lastUpdated = await getData<string>(StorageKeys.PLAYERS_LAST_GET);
   const playersStored = await getData<PlayersProps[]>(
-    StorageKeys.TEAMS_STORAGE
+    StorageKeys.PLAYERS_STORAGE
   );
   const hasPlayers = playersStored?.find((player) => player.team.id === teamId);
-
   if (lastUpdated && hasPlayers) {
     const formatLastDate = parse(lastUpdated, 'dd/MM/yyyy', new Date());
     const diffDays = differenceInDays(formatLastDate, new Date());
@@ -30,12 +29,12 @@ export async function fetchTeams(
       return null;
     }
 
-    await removeData(StorageKeys.LEAGUE_STORAGE);
-    const filteredStandings = playersStored?.filter(
+    await removeData(StorageKeys.PLAYERS_STORAGE);
+    const filteredPlayers = playersStored?.filter(
       (player) => player.team.id !== teamId
     );
-    await removeData(StorageKeys.LEAGUE_LAST_GET);
-    await storeData(filteredStandings, StorageKeys.TEAMS_STORAGE);
+    await removeData(StorageKeys.PLAYERS_LAST_GET);
+    await storeData(filteredPlayers, StorageKeys.PLAYERS_STORAGE);
   }
 
   const queryParams = `?team=${teamId}`;
@@ -43,14 +42,13 @@ export async function fetchTeams(
     `players/squads${queryParams}`
   );
   const players = rawData.data.response[0];
-
   const getAt = format(new Date(), 'dd/MM/yyyy');
 
   if (playersStored) {
     playersStored.push(players);
-    await storeData(playersStored, StorageKeys.TEAMS_STORAGE);
+    await storeData(playersStored, StorageKeys.PLAYERS_STORAGE);
   } else {
-    await storeData(players, StorageKeys.PLAYERS_STORAGE);
+    await storeData(Array(players), StorageKeys.PLAYERS_STORAGE);
   }
   await storeData(getAt, StorageKeys.PLAYERS_LAST_GET);
 

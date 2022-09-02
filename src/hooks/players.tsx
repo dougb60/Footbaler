@@ -38,12 +38,9 @@ function teamsReducer(
   action: PlayersAction
 ): Partial<PlayersContextProps> {
   switch (action.type) {
-    // case TeamsTypes.SET_TEAMS: {
-    //   return { ...state, teams: action.payload?.teams };
-    // }
-    // case TeamsTypes.SET_SELECTED_TEAM: {
-    //   return { ...state, selectedId: action.payload?.selectedId };
-    // }
+    case PlayersTypes.SET_PLAYERS: {
+      return { ...state, players: action.payload?.players };
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -54,7 +51,7 @@ function PlayersProvider({ children }: ProviderProps) {
   const [state, dispatch] = useReducer(teamsReducer, initialState);
 
   const value = {
-    teams: state.players,
+    players: state.players,
     dispatch,
   };
 
