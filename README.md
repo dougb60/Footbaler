@@ -42,7 +42,11 @@ Para usar <footballer>, siga estas etapas:
 <Após o processo de instalação e rodar o expo start eslhoer 'i' para emular no IOS ou 'a' para Android>
 ```
 
+## ScreenShots <footballer>
 
+![alt text](https://github.com/dougb60/Footbaler/tree/dev/screenShots)
+  
+  
 ## 📝 Licença
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
