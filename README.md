@@ -44,7 +44,12 @@ Para usar <footballer>, siga estas etapas:
 
 ## ScreenShots <footballer>
 
-![alt text](https://github.com/dougb60/Footbaler/tree/dev/screenShots/Simulator Screen Shot - iPhone 12 mini - 2022-09-02 at 21.29.50.png)
+![ss1](https://github.com/dougb60/Footbaler/tree/dev/screenShots/ss1.png)
+![ss2](https://github.com/dougb60/Footbaler/tree/dev/screenShots/ss1.png)
+![ss3](https://github.com/dougb60/Footbaler/tree/dev/screenShots/ss1.png)
+![ss4](https://github.com/dougb60/Footbaler/tree/dev/screenShots/ss1.png)
+![ss5](https://github.com/dougb60/Footbaler/tree/dev/screenShots/ss1.png)
+![ss6](https://github.com/dougb60/Footbaler/tree/dev/screenShots/ss1.png)
   
   
 ## 📝 Licença
