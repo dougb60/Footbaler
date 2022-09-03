@@ -8,7 +8,7 @@ export type RootStackParamList = {
   Teams: { teamId: number };
   Venue: { teamName: string };
   Players: { teamName: string };
-  TabLeague: NavigatorScreenParams<{
+  Leagues: NavigatorScreenParams<{
     League: undefined;
     LeagueDetails: undefined;
   }>;
@@ -17,7 +17,7 @@ export type RootStackParamList = {
 export type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type LeagueProps = NativeStackScreenProps<
   RootStackParamList,
-  'League' | 'TabLeague'
+  'League' | 'Leagues'
 >;
 export type LeagueDetailsProps = NativeStackScreenProps<
   RootStackParamList,

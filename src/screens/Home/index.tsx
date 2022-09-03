@@ -23,29 +23,13 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
       </Header>
       <Body>
         <CustomButton
-          onPress={() => navigation.navigate('TabLeague', { screen: 'League' })}
+          onPress={() => navigation.navigate('Leagues', { screen: 'League' })}
           borderRadius={6}
           backgroundColor="greenBackground"
-          padding={{ x: 0, y: 42 }}>
-          <CustomText type="bold" fontSize={24} fontColor="shape">
-            Ligas
-          </CustomText>
-        </CustomButton>
-        <CustomButton
-          margin={{ x: 0, y: 12 }}
-          padding={{ x: 0, y: 42 }}
-          backgroundColor="greenBackground"
-          borderRadius={6}>
-          <CustomText type="bold" fontSize={24} fontColor="shape">
-            Times
-          </CustomText>
-        </CustomButton>
-        <CustomButton
-          padding={{ x: 0, y: 42 }}
-          backgroundColor="greenBackground"
-          borderRadius={6}>
-          <CustomText type="bold" fontSize={24} fontColor="shape">
-            Jogadores
+          margin={{ x: 0, y: 42 }}
+          padding={{ x: 0, y: 24 }}>
+          <CustomText type="bold" fontSize={18} fontColor="shape">
+            Ver ligas Ativas BR
           </CustomText>
         </CustomButton>
       </Body>

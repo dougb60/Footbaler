@@ -1,3 +1,4 @@
+import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
@@ -39,9 +40,20 @@ export function AppTabRoutes() {
       <Tab.Screen
         name="Home"
         component={Home}
-        options={{ tabBarStyle: { display: 'none' } }}
+        options={{
+          tabBarStyle: { display: 'none' },
+          tabBarIcon: () => <AntDesign name="home" size={24} color="black" />,
+        }}
       />
-      <Tab.Screen name="TabLeague" component={AppStackRoutes} />
+      <Tab.Screen
+        name="Leagues"
+        component={AppStackRoutes}
+        options={{
+          tabBarIcon: () => (
+            <AntDesign name="barschart" size={24} color="black" />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
